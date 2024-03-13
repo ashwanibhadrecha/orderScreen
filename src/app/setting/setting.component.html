@@ -1,0 +1,33 @@
+<div class="setting-sec">
+    <h2>¿QUÉ PLATAFORMAS QUIERES mostrar?</h2>
+    <ul class="restaurent-list">
+        <li style="padding-left: 15px;">
+            <select name="" style="text-align: center;" id=""  [(ngModel)]="showColumn" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </li>
+        <li *ngFor="let channel of channelList" [ngClass]="channel.status == false ? 'disabled' : ''">
+            <div class="imgbox">
+                <img src="assets/img/{{channel.imgName}}" />
+            </div>
+            <span>{{channel.channelName}}</span>
+
+            <!-- <input type="checkbox"  [(ngModel)]="channel.status"> -->
+            <!-- <i [ngClass]="channel.status == false ? 'fa-eye-slash' : 'fa-eye'"></i> -->
+            <span class="eye_icon">
+                <i [ngClass]="channel.status == false ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye'"></i>
+                <input type="checkbox" [(ngModel)]="channel.status">
+            </span>
+        </li>
+    </ul>
+    <div class="btnrow">
+        <button (click)="saveSetting(channelList)">Siguiente</button>
+        <button (click)="logout()">cerrar sesión</button>
+
+    </div>
+</div>
+<footer><img src="assets/img/Powered.png" /></footer>

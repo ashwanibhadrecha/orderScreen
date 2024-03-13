@@ -1,0 +1,30 @@
+<div class="order-container" [ngClass]="getdeviceView()" [ngStyle]="{'font-family':css_setting.font_family}">
+    <h2 [ngStyle]="{'background-color': css_setting.main_color, 'color':css_setting.order_status_background}">Estatus de
+        tu orden</h2>
+
+    <ng-container *ngFor="let order of orderList">
+        <div class="osd-order-container">
+            <div class="singitem" style="float: left;padding: 5px;" [ngStyle]="{'width':columns}">
+                <div class="order-item" *ngIf="filterOrderByChannel(order?.channel)"
+                    [ngClass]="order.order_status_display">
+                    <div class="imgBox">
+                        <img *ngIf="order?.channel=='1'" [src]="order.order_status == 3 ? 'assets/img/web1.png' : 
+                    'assets/img/Web.png'" />
+                        <img *ngIf="order?.channel=='2'" src="assets/img/Rappi.png" />
+                        <img *ngIf="order?.channel=='3'" src="assets/img/Didi.png" />
+                        <img *ngIf="order?.channel=='4'" [src]="order.order_status == 3 ? 'assets/img/Ubers.png' : 
+                    'assets/img/Ubers1.png'" />
+                        <img *ngIf="order?.channel=='5'" [src]="order.order_status == 3 ? 'assets/img/web1.png' : 
+                    'assets/img/POS.png'" />
+                        <img *ngIf="order?.channel=='6'" [src]="order.order_status == 3 ? 'assets/img/web1.png' : 
+                    'assets/img/Kiosk.png'" />
+                    </div>
+                    <span>{{(order.order_id_display)?order.order_id_display:'n/a'}}</span>
+                    <strong>{{order.order_status_display}}</strong>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+</div>
+<footer><a [routerLink]="['/setting']"><img src="assets/img/Powered.png" /></a></footer>

@@ -1,0 +1,9 @@
+<div class="osd-login">
+    <h1><img src="assets/img/Logo.png"></h1>
+<form [formGroup]="LoginForm" (ngSubmit)="login()">
+    <input type="text" placeholder="engresar la clave de enicio de sesion" formControlName="loginkey">
+    <button type="submit" [disabled]="LoginForm.invalid">Enicio de sesion</button>
+</form>
+</div>
+
+<footer><img src="assets/img/Powered.png"></footer>
